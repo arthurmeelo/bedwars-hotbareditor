@@ -1,0 +1,113 @@
+# HotbarManager (Auto-Organizer) - Minecraft 1.8.x
+# Desenvolvido por arthurmeelo
+
+settings:
+  enabled: true
+  organizer: true        # true = auto-organizer ligado, false = só editor
+  use-packets: true   # envia packets de update (evita ghost item)
+
+messages:
+  no-permission: "&cVocê não tem permissão."
+  editor-open: "&aEditando hotbar..."
+  saved: "&aHotbar salva!"
+
+# ------------------------------------------------------------------------
+# Categorias e itens (editável)
+# - id: identificador interno
+# - name: nome exibido no menu
+# - icon: material (nome 1.8) ou id numérico
+# - items: lista de materiais/ids que pertencem à categoria
+#
+# Formatos aceitos em items:
+# - "267" (id numérico)
+# - "WOOL:14" (material + data)
+# - "DIAMOND_SWORD" (material)
+# ------------------------------------------------------------------------
+categories:
+  combat:
+    name: "&cCombate"
+    icon: "DIAMOND_SWORD"
+    items:
+      - "WOOD_SWORD"
+      - "STONE_SWORD"
+      - "IRON_SWORD"
+      - "DIAMOND_SWORD"
+      - "STICK"
+  tools:
+    name: "&bFerramentas"
+    icon: "DIAMOND_PICKAXE"
+    items:
+      - "WOOD_PICKAXE"
+      - "STONE_PICKAXE"
+      - "IRON_PICKAXE"
+      - "DIAMOND_PICKAXE"
+      - "WOOD_AXE"
+      - "STONE_AXE"
+      - "IRON_AXE"
+      - "DIAMOND_AXE"
+      - "SHEARS"
+  blocks:
+    name: "&aBlocos"
+    icon: "WOOL:14"
+    items:
+      - "WOOL"
+      - "SANDSTONE"
+      - "ENDER_STONE"
+      - "WOOD"
+      - "LOG"
+      - "GLASS"
+  projectiles:
+    name: "&eProjéteis"
+    icon: "BOW"
+    items:
+      - "BOW"
+      - "ARROW"
+      - "SNOW_BALL"
+      - "EGG"
+  utilities:
+    name: "&6Utilidades"
+    icon: "GOLDEN_APPLE"
+    items:
+      - "GOLDEN_APPLE"
+      - "TNT"
+      - "FIREBALL"
+      - "WEB"
+      - "ENDER_PEARL"
+
+# ------------------------------------------------------------------------
+# Banco de dados + cache
+# type: mysql | postgresql | mongodb
+# ------------------------------------------------------------------------
+database:
+  type: "mysql"
+  cache:
+    preload-on-join: true
+  mysql:
+    host: "localhost"
+    port: 3306
+    database: "hotbar_db"
+    user: "hotbar_user"
+    password: "secretpass"
+    maximumPoolSize: 10
+  postgresql:
+    host: "localhost"
+    port: 5432
+    database: "hotbar_db"
+    user: "hotbar_user"
+    password: "secretpass"
+    maximumPoolSize: 10
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    database: "hotbar_db"
+    collection: "hotbar_layouts"
+
+# ------------------------------------------------------------------------
+# GUI
+# ------------------------------------------------------------------------
+gui:
+  main-title: "&eEditando hotbar..."
+  select-title: "&eAdicionado no slot #%slot%..."
+  filler:
+    empty: "STAINED_GLASS_PANE:7"      # cinza
+    configured: "STAINED_GLASS_PANE:5" # verde
+    disabled: "STAINED_GLASS_PANE:14"  # vermelho

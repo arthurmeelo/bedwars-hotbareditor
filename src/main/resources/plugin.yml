@@ -1,0 +1,13 @@
+name: HotbarManager
+main: com.arthurmeelo.hotbar.HotbarManagerPlugin
+author: arthurmeelo
+version: 1.0
+api-version: 1.8
+commands:
+  hotbar:
+    description: Opens the hotbar editor GUI
+    aliases: [hotbareditor, hbed]
+permissions:
+  hotbar.use:
+    description: Allows the player to use the hotbar editor
+    default: op
